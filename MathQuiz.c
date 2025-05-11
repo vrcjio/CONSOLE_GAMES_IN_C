@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+#include <conio.h>
+#include <windows.h>
 #define EPSILON 0.01
 
 double getRandomeNumber(int min, int max)
@@ -18,6 +20,11 @@ int main()
 
     while (level <= 5)
     {
+        system("cls");
+        printf("\nYour Level: %d", level);
+        printf("\nYour Score is: %d", score);
+        printf("\n---------------------------\n");
+
         if (level == 0)
         {
             x = getRandomeNumber(1, 100);
@@ -25,8 +32,9 @@ int main()
             printf("(%.2lf) + (%.2lf) = ?", x, y);
             printf("\nEnter your Anwer: ");
             scanf("%lf", &result);
-            if (fabs(result-(x + y))<EPSILON)
+            if (fabs(result - (x + y)) < EPSILON)
             {
+                Beep(1500, 1000);
                 printf("\nCorrect.\n\n");
                 score++;
                 if (score == 2)
@@ -36,6 +44,7 @@ int main()
             }
             else
             {
+                Beep(300, 2000);
                 printf("\nWrong, Correct Answer is: (%.2lf)", x + y);
                 printf("\nLet's Try Next...");
             }
@@ -48,7 +57,7 @@ int main()
             printf("(%.2lf) + (%.2lf) = ?", x, y);
             printf("\nEnter your Anwer: ");
             scanf("%lf", &result);
-            if (fabs(result-(x + y))<EPSILON)
+            if (fabs(result - (x + y)) < EPSILON)
             {
                 printf("\nCorrect.\n\n");
                 score++;
@@ -70,7 +79,7 @@ int main()
             printf("(%.2lf) - (%.2lf) = ?", x, y);
             printf("\nEnter your Anwer: ");
             scanf("%lf", &result);
-            if (fabs(result-(x - y))<EPSILON)
+            if (fabs(result - (x - y)) < EPSILON)
             {
                 printf("\nCorrect.\n\n");
                 score++;
@@ -92,7 +101,7 @@ int main()
             printf("(%.2lf) - (%.2lf) = ?", x, y);
             printf("\nEnter your Anwer: ");
             scanf("%lf", &result);
-            if (fabs(result-(x - y))<EPSILON)
+            if (fabs(result - (x - y)) < EPSILON)
             {
                 printf("\nCorrect.\n\n");
                 score++;
@@ -114,7 +123,7 @@ int main()
             printf("(%.2lf) * (%.2lf) = ?", x, y);
             printf("\nEnter your Anwer: ");
             scanf("%lf", &result);
-            if (fabs(result-(x * y))<EPSILON)
+            if (fabs(result - (x * y)) < EPSILON)
             {
                 printf("\nCorrect.\n\n");
                 score++;
@@ -136,7 +145,7 @@ int main()
             printf("(%.2lf) * (%.2lf) = ?", x, y);
             printf("\nEnter your Anwer: ");
             scanf("%lf", &result);
-            if (fabs(result-(x * y))<EPSILON)
+            if (fabs(result - (x * y)) < EPSILON)
             {
                 printf("\nCorrect.\n\n");
                 score++;
@@ -151,6 +160,7 @@ int main()
                 printf("\nLet's Try Next...");
             }
         }
+        getch();
     }
 
     return 0;
